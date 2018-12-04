@@ -9,7 +9,7 @@ namespace Course.Entities
         public WorkerLevel Level { get; set; }
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
-        public List<HourContract> Contracts { get; private set; }
+        public List<HourContract> Contracts { get; private set; } = new List<HourContract>();
 
         public Worker()
         {
@@ -34,12 +34,12 @@ namespace Course.Entities
             Contracts.Remove(contract);
         }
 
-        public double Income(int yeah, int month)
+        public double Income(int year, int month)
         {
             double sum = BaseSalary;
             foreach (HourContract contract in Contracts)
             {
-                if (contract.Date.Year == yeah && contract.Date.Month == month)
+                if (contract.Date.Year == year && contract.Date.Month == month)
                 {
                     sum += contract.TotalValue();
                 }
