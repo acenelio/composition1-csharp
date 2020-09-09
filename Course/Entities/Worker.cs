@@ -21,7 +21,6 @@ namespace Course.Entities
             Level = level;
             BaseSalary = baseSalary;
             Department = department;
-            Contracts = new List<HourContract>();
         }
 
         public void AddContract(HourContract contract)
